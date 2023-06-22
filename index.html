@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <title>domingos.eth</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Consolas, monospace;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .image-holder {
+      width: 100%;
+      height: 100%;
+      background-image: url('images/meebit.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 60% 0;
+    }
+    
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      cursor: pointer;
+      background-image: url('images/9195.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 200px; /* Increase the width to adjust the size */
+      height: 200px; /* Increase the height to adjust the size */
+      padding: 10px;
+      border-radius: 50%;
+    }
+    
+    .hamburger span {
+      display: none; /* Hide the black lines */
+    }
+
+    .menu {
+      position: fixed;
+      top: 180px;
+      right: 0;
+      width: 225px;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0); /* Change the alpha channel value to adjust transparency */
+      display: none;
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .menu.open {
+      display: block;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-bottom: 10px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 25px;
+    }
+
+    .menu p {
+      color: white;
+      font-size: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .image-holder {
+        background-position: center center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-holder {
+        background-position: center center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-holder"></div>
+    <div class="hamburger" onclick="toggleMenu()">
+    </div>
+    <div class="menu" id="menu">
+      <ul>
+        <li><p><strong>about</strong></p></li>
+        <li><a href="https://twitter.com/ens_domingos" target="_blank">twitter</a></li>
+        <li><a href="mailto:domingos@skiff.com">e-mail</a></li>
+        <li><a href="https://opensea.io/cold.domingos.eth" target="_blank">nfts</a></li>
+        <li><p>///</p></li>
+        <li><p><strong>listen</strong></p></li>
+        <li><a href="https://open.spotify.com/show/1te7oSFyRVekxMBJUSethH?si=8c4fe6c6481e41f1" target="_blank">odd lots</a></li>
+        <li><a href="https://open.spotify.com/show/4YWyPCna1Sg50fmRJGF0LV?si=70bc4e8aa09f42ab" target="_blank">forward guidance</a></li>
+        <li><a href="https://open.spotify.com/show/2yFL2nSsQucf1rzdEKbFZY?si=e282110b85e24b59" target="_blank">on the margin</a></li>
+        <li><p>///</p></li>
+        <li><p><strong>follow</strong></p></li>
+        <li><a href="https://twitter.com/i/lists/1671765979255439360?t=2wM7N6e8tbNuQgDQzmumKg" target="_blank">curated twitter list</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
