@@ -56,11 +56,12 @@
       top: 180px;
       right: 0;
       width: 225px;
-      height: 100vh;
+      max-height: 100vh;
       background-color: rgba(255, 255, 255, 0); /* Change the alpha channel value to adjust transparency */
       display: none;
       z-index: 999;
       padding: 20px;
+      overflow-y: auto; /* Add scrolling when the menu exceeds viewport height */
     }
 
     .menu.open {
