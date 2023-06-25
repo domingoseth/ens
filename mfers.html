@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <title>domingos.eth</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Consolas, monospace;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .image-holder {
+      width: 100%;
+      height: 100%;
+      background-image: url('images/meebit.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 60% 0;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      cursor: pointer;
+      background-image: url('images/9195.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .hamburger span {
+      display: none;
+    }
+
+    .menu {
+      position: fixed;
+      top: 180px;
+      right: 0;
+      width: 225px;
+      max-height: calc(100vh - 200px);
+      /* Limit the height of the menu container */
+      background-color: rgba(255, 255, 255, 0);
+      display: none;
+      z-index: 999;
+      padding: 20px;
+      overflow-y: scroll;
+      /* Enable scrolling within the menu */
+    }
+
+    .menu.open {
+      display: block;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-bottom: 10px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-size: 25px;
+    }
+
+    .menu p {
+      color: white;
+      font-size: 25px;
+    }
+
+    .floating-box {
+      position: absolute;
+      width: 60%;
+      top: 50%;
+      left: 100px;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 20px;
+      border-radius: 10px;
+      font-family: Consolas, monospace;
+    }
+
+    @media (max-width: 768px) {
+      .image-holder {
+        background-position: center center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-holder {
+        background-position: center center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="image-holder"></div>
+    <div class="hamburger" onclick="toggleMenu()"></div>
+    <div class="menu" id="menu">
+      <ul>
+        <li>
+          <p><strong>about</strong></p>
+        </li>
+        <li><a href="https://twitter.com/ens_domingos" target="_blank">twitter</a></li>
+        <li><a href="mailto:domingos@skiff.com">e-mail</a></li>
+        <li><a href="https://mirror.xyz/domingos.eth" target="_blank">blog</a></li>
+        <li><a href="https://opensea.io/cold.domingos.eth" target="_blank">nfts</a></li>
+        <li>
+          <p>///</p>
+          <p><strong>guides</strong></p>
+        </li>
+        <li><a href="mfers.html">mfers</a></li>
+        <li>
+          <p>///</p>
+        </li>
+        <li>
+          <p><strong>listen</strong></p>
+        </li>
+        <li><a href="https://open.spotify.com/show/1te7oSFyRVekxMBJUSethH?si=8c4fe6c6481e41f1" target="_blank">odd
+            lots</a></li>
+        <li><a href="https://open.spotify.com/show/4YWyPCna1Sg50fmRJGF0LV?si=70bc4e8aa09f42ab" target="_blank">forward
+            guidance</a></li>
+        <li><a href="https://open.spotify.com/show/2yFL2nSsQucf1rzdEKbFZY?si=e282110b85e24b59" target="_blank">on the
+            margin</a></li>
+        <li><a href="https://open.spotify.com/show/5LGxKlY6fzXS3tGsjB23Cb?si=dc103f45a756403d" target="_blank">masters
+            in business</a></li>
+        <li><a href="https://open.spotify.com/show/7yAAsaj77q3jQLbX8NAQ7J?si=d254cc66dfec4751" target="_blank">infinite
+            loops</a></li>
+        <li><a href="https://open.spotify.com/show/22fi0RqfoBACCuQDv97wFO?si=94d72a3a7f514d43" target="_blank">invest
+            like the best</a></li>
+        <li><a href="https://open.spotify.com/show/7txiovdzPARhjm18NwMUYj?si=9a6c13491d5f4274"
+            target="_blank">founders</a></li>
+        <li><a href="https://open.spotify.com/show/2IqXAVFR4e0Bmyjsdc8QzF?si=3be1203aa7834e65"
+            target="_blank">all-in</a></li>
+        <li>
+          <p>///</p>
+        </li>
+        <li>
+          <p><strong>follow</strong></p>
+        </li>
+        <li><a href="https://twitter.com/i/lists/1671765979255439360?t=2wM7N6e8tbNuQgDQzmumKg" target="_blank">curated
+            twitter list</a></li>
+      </ul>
+      <br><br><br><br><br>
+    </div>
+    <div class="floating-box">
+      <div style="line-height: 2;">
+        <h1 style="color: white;">mfers</h1>
+        <h2 style="color: white;">collections</h2>
+      </div>
+      <div style="margin-left: 20px; line-height: 1.5;">
+      <p>
+      <ul>
+        <li style="color: white;"><a href="https://opensea.io/collection/mfers" target="_blank" style="color: white">mfers</a></il>
+        <li style="color: white;"><a href="https://opensea.io/collection/creyzies" target="_blank" style="color: white;">CREYZIES</a></il>
+        <li style="color: white;"><a href="https://opensea.io/collection/end-of-sartoshi" target="_blank" style="color: white;">end of sartoshi - eos pass</a></il>
+        <li style="color: white;"><strong style="color: white;">Life Death & Cryptoart</strong></il>
+          <ul style="margin-left: 20px;">
+            <li style="color: white;"><a href="https://opensea.io/collection/life-death-cryptoart-no-1-patrick-amadon" target="_blank" style="color: white;">No. 1 -
+                Patrick Amadon</a></il>
+            <li style="color: white;"><a href="https://opensea.io/collection/life-death-cryptoart-no-2-pop-wonder" target="_blank" style="color: white;">No. 2 - Pop
+                Wonder</a></il>
+            <li style="color: white;"><a href="https://opensea.io/collection/life-death-cryptoart-no-3-pixelord" target="_blank" style="color: white;">No. 3 - Pixelord</a></il>
+            <li style="color: white;"><a href="https://opensea.io/collection/life-death-cryptoart-no-4-nadiia-forkosh" target="_blank" style="color: white;">No. 4 - Nadiia Forkosh</a></il>
+            <li style="color: white;"><a href="https://opensea.io/collection/life-death-cryptoart-no-5-reylarsdam" target="_blank" style="color: white;">No. 5 - Reylarsdam</a></il>
+          </ul>
+      </ul>
+      </p>
+      </div>
+      <div style="line-height: 2;">
+        <h2 style="color: white;">derivative collections</h2>
+      </div>
+
+      <div style="margin-left: 20px; line-height: 1.5;">
+      <p>
+      <ul>
+        <li style="color: white;"><a href="https://opensea.io/collection/mfersahead" target="_blank" style="color: white">Mfers Ahead</a></il>
+        <li style="color: white;"><a href="https://opensea.io/collection/mfersbehind" target="_blank" style="color: white">mfersbehind</a></il>
+        <li style="color: white;"><a href="https://opensea.io/collection/onchainmfersplayground-2" target="_blank" style="color: white">OnChainMfersPlayground</a></il>
+      </ul>
+      </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>
