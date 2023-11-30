@@ -30,34 +30,35 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-    
-.hamburger {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  cursor: pointer;
-  background-image: url('images/9195.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 200px;
-  height: 200px;
-  padding: 10px;
-  border-radius: 50%;
-}
 
-    
+    .hamburger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      cursor: pointer;
+      background-image: url('images/9195.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 200px;
+      height: 200px;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+
     .hamburger span {
       display: none;
     }
 
     .menu {
       position: fixed;
-      top: 180px;
+      top: 200px;
       left: 20px;
-      width: 225px;
-      max-height: calc(100vh - 200px); /* Limit the height of the menu container */
-      background-color: rgba(255, 255, 255, 0);
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      opacity:0.69;
       display: none;
       z-index: 999;
       padding: 20px;
@@ -79,12 +80,12 @@
 
     .menu a {
       text-decoration: none;
-      color: white;
+      color: black;
       font-size: 25px;
     }
 
     .menu p {
-      color: white;
+      color: black;
       font-size: 25px;
     }
 
@@ -99,11 +100,88 @@
         background-position: center center;
       }
     }
+
+    /* Add the following CSS for the gallery */
+
+    .gallery {
+      position: fixed;
+      top: 600px;
+      bottom: 0;
+      left: 10px;
+      right: 500px;
+      height: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Divide the gallery into 2 columns */
+      grid-template-rows: repeat(3, 1fr); /* Divide the gallery into 3 rows */
+      grid-gap: 10px; /* Add some gap between the images */
+      padding: 10px;
+      /* Add some transparency to the gallery background */
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      border: 5px solid #FFF;
+      object-fit: cover; /* Resize the images to fit the grid cells */
+      cursor: pointer; /* Change the cursor to a zoom-in icon */
+    }
+
+    .modal {
+      display: none; /* Hide the modal by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000; /* Make sure the modal is on top of everything else */
+      background-color: rgba(0, 0, 0, 0.8); /* Add some dark background */
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the modal content */
+      max-width: 100%; /* Limit the width of the modal content */
+      max-height: 100%; /* Limit the height of the modal content */
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Resize the image to fit the modal content */
+    }
+
+    .modal-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5); /* Add some transparency to the caption background */
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 40px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      font-size: 100px;
+      cursor: pointer; /* Change the cursor to a pointer */
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="image-holder"></div>
+    <div class="image-holder"><p style="font-size: 20px; color: white">click to open ▼ ▼ ▼</p></div>
     <div class="hamburger" onclick="toggleMenu()"></div>
     <div class="menu" id="menu">
       <ul>
@@ -126,13 +204,76 @@
     </br>
     </br>
     </div>
+    <!-- Add the following HTML for the gallery -->
+    <div class="gallery">
+      <!-- Add 6 images with alt text and onclick attribute -->
+      <img src="images/image1.png" alt="mfer #9195" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/9195')">
+      <img src="images/image2.png" alt="mfer #4964" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/4964')">
+      <img src="images/image3.png" alt="mfer #6" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/6')">
+      <img src="images/image4.png" alt="mfer #1124" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/1124')">
+      <img src="images/image5.png" alt="OCM #7680" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x960b7a6bcd451c9968473f7bbfd9be826efd549a/7680')">
+      <img src="images/image6.png" alt="Larva Lad #1633" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x5755ab845ddeab27e1cfce00cd629b2e135acc3d/1633')">
+    </div>
+    <!-- Add the following HTML for the modal -->
+    <div class="modal" id="modal">
+      <button class="close" onclick="closeModal()">x</button>
+      <div class="modal-content">
+        <img src="" alt="" class="modal-img" id="modal-img">
+        <div class="modal-caption" id="modal-caption"></div>
+      </div>
+    </div>
   </div>
 
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById('menu');
-      menu.classList.toggle('open');
-    }
+// Create a new Audio object with the source URL
+var sound = new Audio("https://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3");
+
+// Create a variable to store the menu state
+var menuOpen = false;
+
+// Toggle the menu when the user clicks a button
+function toggleMenu() {
+  var menu = document.getElementById('menu');
+  menu.classList.toggle('open');
+
+  // Toggle the menu state
+  menuOpen = !menuOpen;
+
+  // Toggle the sound based on the menu state
+  if (menuOpen) {
+    // Play the sound
+    sound.play();
+  } else {
+    // Pause the sound
+    sound.pause();
+  }
+}
+
+// Add an event listener to the menu button
+var menuButton = document.getElementById('menu-button');
+menuButton.addEventListener('click', toggleMenu);
+    
+    // Add the following JavaScript for the gallery and modal functionality
+
+    function showImage(src, alt) {
+  var modal = document.getElementById('modal');
+  var modalImg = document.getElementById('modal-img');
+  var modalCaption = document.getElementById('modal-caption');
+  modal.style.display = 'block'; // Show the modal
+  modalImg.src = src; // Set the modal image source to the clicked image source
+  modalCaption.innerHTML = alt; // Set the modal caption to the clicked image alt text
+  var timeoutID = setTimeout(function() {window.location.href = url;
+}, 5000); // 5 seconds
+  return timeoutID; // Return the timeout ID
+}
+
+function closeModal() {
+  var modal = document.getElementById('modal');
+  var timeoutID = showImage(); // Get the timeout ID from showImage
+  modal.style.display = 'none'; // Hide the modal
+  clearTimeout(timeoutID); // Cancel the timeout
+}
+
   </script>
 </body>
 </html>
