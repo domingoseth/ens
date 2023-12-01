@@ -105,7 +105,7 @@
     /* Add the following CSS for the gallery */
 
     .gallery {
-      position: fixed;
+      position: relative;
       top: 600px;
       bottom: 0;
       left: 10px;
@@ -186,7 +186,9 @@
     <div class="hamburger" onclick="toggleMenu()"></div>
     <div class="menu" id="menu">
       <ul>
-        </li>
+        <li><p><strong>nfts</strong></p></li>
+        <li><a href="https://opensea.io/domingos.eth?search[collections][0]=mfers">mfers</a></li>
+        <li><a href="https://opensea.io/domingos.eth?search[collections][0]=onchainmonkey">ocm</a></li>
         <li><p><strong>listen</strong></p></li>
         <li><a href="https://open.spotify.com/show/1te7oSFyRVekxMBJUSethH?si=8c4fe6c6481e41f1" target="_blank">odd lots</a></li>
         <li><a href="https://open.spotify.com/show/4YWyPCna1Sg50fmRJGF0LV?si=70bc4e8aa09f42ab" target="_blank">forward guidance</a></li>
@@ -204,24 +206,6 @@
     </br>
     </br>
     </br>
-    </div>
-    <!-- Add the following HTML for the gallery -->
-    <div class="gallery">
-      <!-- Add 6 images with alt text and onclick attribute -->
-      <img src="images/image1.png" alt="mfer #9195" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/9195')">
-      <img src="images/image2.png" alt="mfer #4964" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/4964')">
-      <img src="images/image3.png" alt="mfer #6" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/6')">
-      <img src="images/image4.png" alt="mfer #1124" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x79fcdef22feed20eddacbb2587640e45491b757f/1124')">
-      <img src="images/image5.png" alt="OCM #7680" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x960b7a6bcd451c9968473f7bbfd9be826efd549a/7680')">
-      <img src="images/image6.png" alt="Larva Lad #1633" class="gallery-img" onclick="showImage(this.src, this.alt, 'https://opensea.io/assets/ethereum/0x5755ab845ddeab27e1cfce00cd629b2e135acc3d/1633')">
-    </div>
-    <!-- Add the following HTML for the modal -->
-    <div class="modal" id="modal">
-      <button class="close" onclick="closeModal()">x</button>
-      <div class="modal-content">
-        <img src="" alt="" class="modal-img" id="modal-img">
-        <div class="modal-caption" id="modal-caption"></div>
-      </div>
     </div>
   </div>
 
